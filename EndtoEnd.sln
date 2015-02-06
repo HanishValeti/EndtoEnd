@@ -28,6 +28,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EndtoEnd.MoqTests", "EndtoE
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UnitTests", "UnitTests", "{9DFD70B5-7F99-41DD-BC39-22934A0063DB}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{4A21C02B-FF00-485C-84AC-0220CEACEB04}"
+	ProjectSection(SolutionItems) = preProject
+		DbCreation\AccountsAtAGlance.exe = DbCreation\AccountsAtAGlance.exe
+		DbCreation\ReadMe.txt = DbCreation\ReadMe.txt
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
