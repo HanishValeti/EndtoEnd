@@ -1,0 +1,68 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30501.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EndtoEnd", "EndtoEnd\EndtoEnd.csproj", "{0CD551BF-57F3-4D4F-8F78-0586653BA983}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EndtoEnd.IntegrationTests", "EndtoEnd.Tests\EndtoEnd.IntegrationTests.csproj", "{F112309A-B120-497B-9549-0DB44ACEEC87}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Main", "Main", "{A79AA445-CBB4-4559-A55E-9DDBADD8E021}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EndtoEnd.Entity", "EndtoEnd.Entity\EndtoEnd.Entity.csproj", "{83BA0A91-2B64-45D2-ABC0-E7441EE4ED02}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain", "Domain", "{B4961C21-5DF9-4370-97CA-835659F8FE73}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Repository", "Repository", "{2BC617E1-BC4B-4EEC-B4A2-7205ABA34816}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EndtoEnd.Repository", "EndtoEnd.Repository\EndtoEnd.Repository.csproj", "{711E1E07-8D71-4732-91DB-DE75F52542A4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{878134DC-B6E2-4F29-A8A0-05D038DF7C68}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+		.nuget\NuGet.exe = .nuget\NuGet.exe
+		.nuget\NuGet.targets = .nuget\NuGet.targets
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EndtoEnd.MoqTests", "EndtoEnd.MoqTests\EndtoEnd.MoqTests.csproj", "{02FC12DD-CC5D-4692-81B0-81F223A68A4B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UnitTests", "UnitTests", "{9DFD70B5-7F99-41DD-BC39-22934A0063DB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0CD551BF-57F3-4D4F-8F78-0586653BA983}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0CD551BF-57F3-4D4F-8F78-0586653BA983}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0CD551BF-57F3-4D4F-8F78-0586653BA983}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0CD551BF-57F3-4D4F-8F78-0586653BA983}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F112309A-B120-497B-9549-0DB44ACEEC87}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F112309A-B120-497B-9549-0DB44ACEEC87}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F112309A-B120-497B-9549-0DB44ACEEC87}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F112309A-B120-497B-9549-0DB44ACEEC87}.Release|Any CPU.Build.0 = Release|Any CPU
+		{83BA0A91-2B64-45D2-ABC0-E7441EE4ED02}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{83BA0A91-2B64-45D2-ABC0-E7441EE4ED02}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{83BA0A91-2B64-45D2-ABC0-E7441EE4ED02}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{83BA0A91-2B64-45D2-ABC0-E7441EE4ED02}.Release|Any CPU.Build.0 = Release|Any CPU
+		{711E1E07-8D71-4732-91DB-DE75F52542A4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{711E1E07-8D71-4732-91DB-DE75F52542A4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{711E1E07-8D71-4732-91DB-DE75F52542A4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{711E1E07-8D71-4732-91DB-DE75F52542A4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{02FC12DD-CC5D-4692-81B0-81F223A68A4B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{02FC12DD-CC5D-4692-81B0-81F223A68A4B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{02FC12DD-CC5D-4692-81B0-81F223A68A4B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{02FC12DD-CC5D-4692-81B0-81F223A68A4B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{0CD551BF-57F3-4D4F-8F78-0586653BA983} = {A79AA445-CBB4-4559-A55E-9DDBADD8E021}
+		{F112309A-B120-497B-9549-0DB44ACEEC87} = {9DFD70B5-7F99-41DD-BC39-22934A0063DB}
+		{83BA0A91-2B64-45D2-ABC0-E7441EE4ED02} = {B4961C21-5DF9-4370-97CA-835659F8FE73}
+		{711E1E07-8D71-4732-91DB-DE75F52542A4} = {2BC617E1-BC4B-4EEC-B4A2-7205ABA34816}
+		{02FC12DD-CC5D-4692-81B0-81F223A68A4B} = {9DFD70B5-7F99-41DD-BC39-22934A0063DB}
+	EndGlobalSection
+EndGlobal

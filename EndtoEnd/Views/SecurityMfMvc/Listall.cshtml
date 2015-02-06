@@ -1,0 +1,41 @@
+﻿@model IEnumerable<EndtoEnd.Entity.SecurityMutualFundDto>
+@using MvcContrib.UI.Grid
+@{
+    ViewBag.Title = "Listall";
+}
+
+<h2>Listall</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+@Html.Grid(Model).Columns(cb =>
+    {
+        cb.For(model => model.Symbol)
+        .Named("Symbol"); 
+        cb.For(model => model.MorningStarRating)
+        .Named("MorningStarRating");
+        cb.For(model => model.Company)
+        .Named("Company");
+        cb.For(model => model.PercentChange)
+        .Named("PercentChange");
+        cb.For(model => model.Shares)
+        .Named("Shares");
+        cb.For(model => model.RetrievalDateTime)
+        .Named("RetrievalDateTime");
+        cb.For(model => @Html.ActionLink("Edit", "Edit", new {id = model.Id}));
+        cb.For(model => @Html.ActionLink("Details", "Select", new {id = model.Id}));
+        cb.For(model => @Ajax.ActionLink("Delete", "Delete", new {id = model.Id},
+            new AjaxOptions
+            {
+                HttpMethod = "DELETE",
+                OnSuccess = "myModuleJS.onDeleteSuccess",
+                OnFailure = "myModuleJS.onDeleteFailure"
+            },
+            new { onclick = "return myModuleJS.onConfirmDone();" }));
+
+    }).Attributes(new Dictionary<string, object> { { "class", "table table-striped table-bordered table-condensed" } }).RowAttributes(data => new Dictionary<string, object> { { "id", string.Concat("sec-id-", data.Item.Id) } })
+    
+                      
+

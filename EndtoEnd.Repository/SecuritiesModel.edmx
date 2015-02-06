@@ -1,0 +1,231 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="AccountsAtAGlanceModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Securities">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Change" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="PercentChange" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="Last" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="Shares" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="Symbol" Type="nvarchar" MaxLength="5" Nullable="false" />
+          <Property Name="RetrievalDateTime" Type="datetime" Nullable="false" />
+          <Property Name="Company" Type="nvarchar" MaxLength="250" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Securities_MutualFund">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="MorningStarRating" Type="int" Nullable="false" />
+          <Property Name="Id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Securities_Stock">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="DayHigh" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="DayLow" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="Dividend" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="Open" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="Volume" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="YearHigh" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="YearLow" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="AverageVolume" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="MarketCap" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="ExchangeId" Type="int" Nullable="false" />
+          <Property Name="Id" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_MutualFund_inherits_Security">
+          <End Role="Securities" Type="Self.Securities" Multiplicity="1" />
+          <End Role="Securities_MutualFund" Type="Self.Securities_MutualFund" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Securities">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Securities_MutualFund">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Stock_inherits_Security">
+          <End Role="Securities" Type="Self.Securities" Multiplicity="1" />
+          <End Role="Securities_Stock" Type="Self.Securities_Stock" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Securities">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Securities_Stock">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="AccountsAtAGlanceModelStoreContainer">
+          <EntitySet Name="Securities" EntityType="Self.Securities" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Securities_MutualFund" EntityType="Self.Securities_MutualFund" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Securities_Stock" EntityType="Self.Securities_Stock" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_MutualFund_inherits_Security" Association="Self.FK_MutualFund_inherits_Security">
+            <End Role="Securities" EntitySet="Securities" />
+            <End Role="Securities_MutualFund" EntitySet="Securities_MutualFund" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Stock_inherits_Security" Association="Self.FK_Stock_inherits_Security">
+            <End Role="Securities" EntitySet="Securities" />
+            <End Role="Securities_Stock" EntitySet="Securities_Stock" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="AccountsAtAGlanceModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Security">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Change" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="PercentChange" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="Last" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="Shares" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="Symbol" Type="String" MaxLength="5" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="RetrievalDateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Company" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Securities_MutualFund" Relationship="Self.FK_MutualFund_inherits_Security" FromRole="Securities" ToRole="Securities_MutualFund" />
+          <NavigationProperty Name="Securities_Stock" Relationship="Self.FK_Stock_inherits_Security" FromRole="Securities" ToRole="Securities_Stock" />
+        </EntityType>
+        <EntityType Name="Securities_MutualFund">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="MorningStarRating" Type="Int32" Nullable="false" />
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Security" Relationship="Self.FK_MutualFund_inherits_Security" FromRole="Securities_MutualFund" ToRole="Securities" />
+        </EntityType>
+        <EntityType Name="Securities_Stock">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="DayHigh" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="DayLow" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="Dividend" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="Open" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="Volume" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="YearHigh" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="YearLow" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="AverageVolume" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="MarketCap" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="ExchangeId" Type="Int32" Nullable="false" />
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Security" Relationship="Self.FK_Stock_inherits_Security" FromRole="Securities_Stock" ToRole="Securities" />
+        </EntityType>
+        <Association Name="FK_MutualFund_inherits_Security">
+          <End Role="Securities" Type="Self.Security" Multiplicity="1" />
+          <End Role="Securities_MutualFund" Type="Self.Securities_MutualFund" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Securities">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Securities_MutualFund">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Stock_inherits_Security">
+          <End Role="Securities" Type="Self.Security" Multiplicity="1" />
+          <End Role="Securities_Stock" Type="Self.Securities_Stock" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Securities">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Securities_Stock">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="AccountsAtAGlanceEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Securities" EntityType="Self.Security" />
+          <EntitySet Name="Securities_MutualFund" EntityType="Self.Securities_MutualFund" />
+          <EntitySet Name="Securities_Stock" EntityType="Self.Securities_Stock" />
+          <AssociationSet Name="FK_MutualFund_inherits_Security" Association="Self.FK_MutualFund_inherits_Security">
+            <End Role="Securities" EntitySet="Securities" />
+            <End Role="Securities_MutualFund" EntitySet="Securities_MutualFund" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Stock_inherits_Security" Association="Self.FK_Stock_inherits_Security">
+            <End Role="Securities" EntitySet="Securities" />
+            <End Role="Securities_Stock" EntitySet="Securities_Stock" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="AccountsAtAGlanceModelStoreContainer" CdmEntityContainer="AccountsAtAGlanceEntities">
+          <EntitySetMapping Name="Securities">
+            <EntityTypeMapping TypeName="AccountsAtAGlanceModel.Security">
+              <MappingFragment StoreEntitySet="Securities">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Change" ColumnName="Change" />
+                <ScalarProperty Name="PercentChange" ColumnName="PercentChange" />
+                <ScalarProperty Name="Last" ColumnName="Last" />
+                <ScalarProperty Name="Shares" ColumnName="Shares" />
+                <ScalarProperty Name="Symbol" ColumnName="Symbol" />
+                <ScalarProperty Name="RetrievalDateTime" ColumnName="RetrievalDateTime" />
+                <ScalarProperty Name="Company" ColumnName="Company" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Securities_MutualFund">
+            <EntityTypeMapping TypeName="AccountsAtAGlanceModel.Securities_MutualFund">
+              <MappingFragment StoreEntitySet="Securities_MutualFund">
+                <ScalarProperty Name="MorningStarRating" ColumnName="MorningStarRating" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Securities_Stock">
+            <EntityTypeMapping TypeName="AccountsAtAGlanceModel.Securities_Stock">
+              <MappingFragment StoreEntitySet="Securities_Stock">
+                <ScalarProperty Name="DayHigh" ColumnName="DayHigh" />
+                <ScalarProperty Name="DayLow" ColumnName="DayLow" />
+                <ScalarProperty Name="Dividend" ColumnName="Dividend" />
+                <ScalarProperty Name="Open" ColumnName="Open" />
+                <ScalarProperty Name="Volume" ColumnName="Volume" />
+                <ScalarProperty Name="YearHigh" ColumnName="YearHigh" />
+                <ScalarProperty Name="YearLow" ColumnName="YearLow" />
+                <ScalarProperty Name="AverageVolume" ColumnName="AverageVolume" />
+                <ScalarProperty Name="MarketCap" ColumnName="MarketCap" />
+                <ScalarProperty Name="ExchangeId" ColumnName="ExchangeId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
