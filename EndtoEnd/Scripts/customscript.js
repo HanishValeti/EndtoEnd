@@ -53,7 +53,7 @@ $("#myModal").on("show.bs.modal", function (event) {
             modal.find(".modal-body p").html(response);
         },
         error: function (e) {
-            $("#mymodal").load(e);
+            modal.load(e);
         }
     });
     //var recipient = button.on("click", function (e) {
