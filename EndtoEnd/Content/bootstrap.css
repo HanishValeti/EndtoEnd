@@ -255,6 +255,11 @@ th {
   .table {
     border-collapse: collapse !important;
   }
+  .table-nonfluid {
+   width: 50%;
+   max-width: 100%;
+   margin-bottom: 20px;
+}
   .table td,
   .table th {
     background-color: #fff !important;
