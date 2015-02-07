@@ -4,7 +4,24 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+@*<h2>Index</h2>*@
+<div>
+    @using (Html.BeginForm())
+    {
+        <div class="form-group">
+            <div class="btn-group" data-toggle="buttons">
+                <label class="btn btn-primary">
+                    @Html.RadioButton("mode", "Modal", true,
+            new { id = "IsModal" }) Modal
+                </label>
+                <label class="btn btn-primary active">
+                    @Html.RadioButton("mode", "Regular",
+             new { id = "IsRegular" }) Regular
+                </label>
+            </div>
+        </div>
+    }
+</div>
 
 @Html.Action("Listall", "SecurityMfMvc");
 

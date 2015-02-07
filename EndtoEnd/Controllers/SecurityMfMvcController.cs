@@ -111,6 +111,7 @@ namespace EndtoEnd.Controllers
                         SecurityMutualFundDto result = response.Content.ReadAsAsync<SecurityMutualFundDto>().Result;
 
                         return PartialView("Select", result);
+                        
                     }
                 }
                 return View("Error");
@@ -134,18 +135,19 @@ namespace EndtoEnd.Controllers
         {
             try
             {
-                if (creatDto != null)
+                TryUpdateModel(creatDto);
+                if (creatDto != null && ModelState.IsValid)
                 {
-                    if(ModelState.IsValid)
-                    { 
                     _httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
                     _httpClient.BaseAddress = new Uri(ConfigurationManager.AppSettings["ApiUrl"]);
-                    var response = _httpClient.PostAsJsonAsync("SecuritiesApiMf", creatDto).ContinueWith((postTask) => postTask.Result.EnsureSuccessStatusCode()).Result;
+                    var response =
+                        _httpClient.PostAsJsonAsync("SecuritiesApiMf", creatDto)
+                            .ContinueWith((postTask) => postTask.Result.EnsureSuccessStatusCode())
+                            .Result;
 
                     SecurityMutualFundDto result = response.Content.ReadAsAsync<SecurityMutualFundDto>().Result;
-                    
-                    return View("Select", result);
-                    }
+
+                    return PartialView("Select", result);
                 }
                 return View("Error");
             }

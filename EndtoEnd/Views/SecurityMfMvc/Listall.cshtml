@@ -1,19 +1,22 @@
 ﻿@model IEnumerable<EndtoEnd.Entity.SecurityMutualFundDto>
-@using MvcContrib.UI.Grid
-@{
-    ViewBag.Title = "Listall";
-}
+    @using Microsoft.Web.Mvc    @using MvcContrib.UI.Grid
+    @*@{
+            ViewBag.Title = "List all";
+        }
 
-<h2>Listall</h2>
+        <h2>List all</h2>*@
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+<div id="regdiv">
+@*@Html.ActionLink("Create New", "Create")*@
+    <p>
+        @Html.Button("Create", "Create New", HtmlButtonType.Button, "window.location='/SecurityMfMvc/Create'", new { @class = "btn btn-primary btn-sn" })
+    </p>
+</div>
 
-@Html.Grid(Model).Columns(cb =>
+    @Html.Grid(Model).Columns(cb =>
     {
         cb.For(model => model.Symbol)
-        .Named("Symbol"); 
+        .Named("Symbol");
         cb.For(model => model.MorningStarRating)
         .Named("MorningStarRating");
         cb.For(model => model.Company)
@@ -24,9 +27,9 @@
         .Named("Shares");
         cb.For(model => model.RetrievalDateTime)
         .Named("RetrievalDateTime");
-        cb.For(model => @Html.ActionLink("Edit", "Edit", new {id = model.Id}));
-        cb.For(model => @Html.ActionLink("Details", "Select", new {id = model.Id}));
-        cb.For(model => @Ajax.ActionLink("Delete", "Delete", new {id = model.Id},
+        cb.For(model => @Html.ActionLink("Edit", "Edit", new { id = model.Id }));
+        cb.For(model => @Html.ActionLink("Details", "Select", new { id = model.Id }));
+        cb.For(model => @Ajax.ActionLink("Delete", "Delete", new { id = model.Id },
             new AjaxOptions
             {
                 HttpMethod = "DELETE",
@@ -36,6 +39,6 @@
             new { onclick = "return myModuleJS.onConfirmDone();" }));
 
     }).Attributes(new Dictionary<string, object> { { "class", "table-nonfluid table-striped table-bordered table-condensed" } }).RowAttributes(data => new Dictionary<string, object> { { "id", string.Concat("sec-id-", data.Item.Id) } })
-    
-                      
 
+
+    

@@ -5,7 +5,6 @@ namespace EndtoEnd.Entity
 {
     public class SecurityMutualFundDto
     {
-        [Key]
         public int Id { get; set; }
         [StringLength(5, MinimumLength = 3,ErrorMessage = "Symbol field Maximum length is 5 and Minimum is 3")]
         [Required]
