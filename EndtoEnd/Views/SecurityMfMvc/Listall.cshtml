@@ -6,13 +6,13 @@
 
         <h2>List all</h2>*@
 
-<div id="regdiv">
-@*@Html.ActionLink("Create New", "Create")*@
-    <p>
-        @Html.Button("Create", "Create New", HtmlButtonType.Button, "window.location='/SecurityMfMvc/Create'", new { @class = "btn btn-primary btn-sn" })
-    </p>
-</div>
-
+    <div id="modaldiv">
+        <p>
+            @*@Html.Button("Create", "Create New", HtmlButtonType.Button, "window.location='/SecurityMfMvc/Create'", new { @class = "btn btn-primary btn-sn" })*@
+            @Html.ActionLink("Create New", "Create", "SecurityMfMvc", null, new { @class = "modal-link" })
+        </p>
+    </div>
+    
     @Html.Grid(Model).Columns(cb =>
     {
         cb.For(model => model.Symbol)
@@ -27,8 +27,8 @@
         .Named("Shares");
         cb.For(model => model.RetrievalDateTime)
         .Named("RetrievalDateTime");
-        cb.For(model => @Html.ActionLink("Edit", "Edit", new { id = model.Id }));
-        cb.For(model => @Html.ActionLink("Details", "Select", new { id = model.Id }));
+        cb.For(model => @Html.ActionLink("Edit", "Edit", "SecurityMfMvc", new { id = model.Id }, new { @class = "modal-link" }));
+        cb.For(model => @Html.ActionLink("Details", "Select", "SecurityMfMvc", new { id = model.Id }, new { @class = "modal-link" }));
         cb.For(model => @Ajax.ActionLink("Delete", "Delete", new { id = model.Id },
             new AjaxOptions
             {

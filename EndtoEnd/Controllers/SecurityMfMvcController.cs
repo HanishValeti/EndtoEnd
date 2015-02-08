@@ -59,6 +59,7 @@ namespace EndtoEnd.Controllers
                     SecurityMutualFundDto result = response.Content.ReadAsAsync<SecurityMutualFundDto>().Result;
 
                     return View("Select", result);
+                    
                 }
                 return View("Error");
             }
@@ -110,7 +111,8 @@ namespace EndtoEnd.Controllers
 
                         SecurityMutualFundDto result = response.Content.ReadAsAsync<SecurityMutualFundDto>().Result;
 
-                        return PartialView("Select", result);
+                        //return PartialView("Select", result);
+                        return RedirectToAction("Index");
                         
                     }
                 }
@@ -147,7 +149,8 @@ namespace EndtoEnd.Controllers
 
                     SecurityMutualFundDto result = response.Content.ReadAsAsync<SecurityMutualFundDto>().Result;
 
-                    return PartialView("Select", result);
+                    //return PartialView("Select", result);
+                    return RedirectToAction("Index");
                 }
                 return View("Error");
             }

@@ -96,7 +96,7 @@ namespace EndtoEnd.Controllers
             try
             {
                 var optStatus = SecurityMfRepository.InsertSecurityMfData(insertDto);
-                var securityMf = SecurityMfRepository.GetSecurityMfBySymbol(insertDto.Symbol);
+                var securityMf = SecurityMfRepository.GetSecurityMfById(insertDto.Id);
                 response = optStatus != null && optStatus.Status == true ? Request.CreateResponse<SecurityMutualFundDto>(HttpStatusCode.OK, securityMf) : new HttpResponseMessage(HttpStatusCode.NotFound);
 
             }

@@ -58,12 +58,13 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-primary btn-sn" />
+                <input type="submit" value="Create" class="btn btn-primary btn-sn"/>
+                @Html.ActionLink("Back to List", "Index", null, new { @class = "col-md-offset-3 btn btn-primary btn-sn" })
             </div>
         </div>
     </div>
 }
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
+<div class="form-group">
+    
 </div>

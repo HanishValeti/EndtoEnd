@@ -176,6 +176,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\MyHelpers.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -259,9 +260,9 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\SecurityMfMvc\Index.cshtml" />
     <Content Include="Views\SecurityMfMvc\Listall.cshtml" />
-    <Content Include="Views\SecurityMfMvc\Select.cshtml" />
     <Content Include="Views\SecurityMfMvc\Edit.cshtml" />
     <Content Include="Views\SecurityMfMvc\Create.cshtml" />
+    <Content Include="Views\SecurityMfMvc\Select.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
