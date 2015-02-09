@@ -1,61 +1,66 @@
 ﻿@model EndtoEnd.Entity.SecurityMutualFundDto
+<div class="modal-content">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        @*<h4 class="modal-title" id="myModalLabel">Create</h4>*@
+    </div>
+    <div>
+        <h4>Details of SecurityMutualFund</h4>
+        <hr/>
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Symbol)
+            </dt>
 
-<div>
-    <h4>SecurityMutualFundDto</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Symbol)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Symbol)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Symbol)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.MorningStarRating)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.MorningStarRating)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.MorningStarRating)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.MorningStarRating)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Company)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Company)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Company)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Company)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.PercentChange)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.PercentChange)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.PercentChange)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.PercentChange)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Shares)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Shares)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Shares)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Shares)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.RetrievalDateTime)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.RetrievalDateTime)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.RetrievalDateTime)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.RetrievalDateTime)
-        </dd>
+        </dl>
+    </div>
+    <p>
+        @*@Html.ActionLink("Edit", "Edit", "SecurityMfMvc", new { id = Model.Id }, new { @class = "modal-link" }) |*@
+        @Html.ActionLink("Back to List", "Index", null, new {@class = "col-md-offset-2 btn btn-default"})
+    </p>
 
-    </dl>
 </div>
-<p>
-    @*@Html.ActionLink("Edit", "Edit", "SecurityMfMvc", new { id = Model.Id }, new { @class = "modal-link" }) |*@
-    @Html.ActionLink("Back to List", "Index", null, new { @class = "col-md-offset-2 btn btn-default" })
-</p>
-
