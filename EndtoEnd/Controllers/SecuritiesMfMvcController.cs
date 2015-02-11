@@ -11,10 +11,10 @@ using EndtoEnd.Entity;
 
 namespace EndtoEnd.Controllers
 {
-    public class SecurityMfMvcController : Controller
+    public class SecuritiesMfMvcController : Controller
     {
         private readonly HttpClient _httpClient;
-        public SecurityMfMvcController(HttpClient httpClient)
+        public SecuritiesMfMvcController(HttpClient httpClient)
         {
 	        this._httpClient = httpClient;
         }

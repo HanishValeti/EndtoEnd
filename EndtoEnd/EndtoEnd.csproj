@@ -172,7 +172,7 @@
     <Compile Include="Bootstrapper.cs" />
     <Compile Include="Controllers\SecuritiesApiMfController.cs" />
     <Compile Include="Controllers\SecuritiesWebApiMfController.cs" />
-    <Compile Include="Controllers\SecurityMfMvcController.cs" />
+    <Compile Include="Controllers\SecuritiesMfMvcController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -258,11 +258,11 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\SecurityMfMvc\Index.cshtml" />
-    <Content Include="Views\SecurityMfMvc\Listall.cshtml" />
-    <Content Include="Views\SecurityMfMvc\Edit.cshtml" />
-    <Content Include="Views\SecurityMfMvc\Create.cshtml" />
-    <Content Include="Views\SecurityMfMvc\Select.cshtml" />
+    <Content Include="Views\SecuritiesMfMvc\Index.cshtml" />
+    <Content Include="Views\SecuritiesMfMvc\Listall.cshtml" />
+    <Content Include="Views\SecuritiesMfMvc\Edit.cshtml" />
+    <Content Include="Views\SecuritiesMfMvc\Create.cshtml" />
+    <Content Include="Views\SecuritiesMfMvc\Select.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

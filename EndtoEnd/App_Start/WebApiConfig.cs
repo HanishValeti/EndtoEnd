@@ -14,14 +14,15 @@ namespace EndtoEnd
             );
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",
-                routeTemplate: "api/{controller}/{symbol}",
-                defaults: new { symbol = RouteParameter.Optional }
-            );
-            config.Routes.MapHttpRoute(
-                name: "ById",
                 routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional },
                 constraints: new { id = @"\d+" }
+            );
+
+            config.Routes.MapHttpRoute(
+                name: "DefaultApiBySymbol",
+                routeTemplate: "api/{controller}/{symbol}",
+                defaults: new { symbol = RouteParameter.Optional }
             );
         }
     }

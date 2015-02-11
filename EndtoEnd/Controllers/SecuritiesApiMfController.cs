@@ -39,7 +39,7 @@ namespace EndtoEnd.Controllers
 
         // GET api/<controller>/FCNTX
         [HttpGet]
-        public HttpResponseMessage Get(string symbol)
+        public HttpResponseMessage Get([FromUri] string symbol)
         {
             HttpResponseMessage response;
             try

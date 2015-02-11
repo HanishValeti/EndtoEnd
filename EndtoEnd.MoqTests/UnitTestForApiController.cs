@@ -73,8 +73,7 @@ namespace EndtoEnd.MoqTests
                 Request = new HttpRequestMessage(),
                 Configuration = new HttpConfiguration()
             };
-
-
+            
             var response = apicontroller.Get();
             IQueryable<SecurityMutualFundDto> testsecurityMutualFundDtos;
             Assert.IsTrue(response.TryGetContentValue<IQueryable<SecurityMutualFundDto>>(out testsecurityMutualFundDtos));
@@ -112,7 +111,7 @@ namespace EndtoEnd.MoqTests
 
         }
 
-        private List<SecurityMutualFundDto> GetsecuritiesMfsList()
+        public IEnumerable<SecurityMutualFundDto> GetsecuritiesMfsList()
         {
             var testsecuritiesMfs = new List<SecurityMutualFundDto>
             {

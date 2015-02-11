@@ -12,19 +12,19 @@ namespace EndtoEnd
             routes.MapRoute(
                 name: "SecuritiesMfById",
                 url: "SecurityMfMvc/Edit/{id}",
-                defaults: new { controller = "SecurityMfMvc", action = "Edit", id = "" },
+                defaults: new { controller = "SecuritiesMfMvc", action = "Edit", id = "" },
                 constraints: new { id = @"\d+" }
                );
             routes.MapRoute(
                 name: "SecuritiesMfBySymbol",
                 url: "SecurityMfMvc/Select/{id}",
-                defaults: new { controller = "SecurityMfMvc", action = "Select", id = "" },
+                defaults: new { controller = "SecuritiesMfMvc", action = "Select", id = "" },
                 constraints: new { id = @"\d+" }
                );
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "SecurityMfMvc", action = "Index", id = UrlParameter.Optional }
+                defaults: new { controller = "SecuritiesMfMvc", action = "Index", id = UrlParameter.Optional }
             );
         }
     }
