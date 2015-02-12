@@ -3,6 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace EndtoEnd.Entity
 {
+    [Serializable]
     public class SecurityMutualFundDto
     {
         public int Id { get; set; }

@@ -1,10 +1,16 @@
 ﻿using System.Configuration;
+using System.IO;
+using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Net.Http.Headers;
+using System.Runtime.Serialization;
+using System.Runtime.Serialization.Formatters.Binary;
+using System.Text;
 using System.Web.Http;
 using System.Web.Http.Controllers;
 using System.Web.Http.Routing;
+using System.Web.Mvc;
 using EndtoEnd.Controllers;
 using EndtoEnd.Entity;
 using Moq;
@@ -105,6 +111,34 @@ namespace EndtoEnd.MoqTests
             //controller.Request = controller.ControllerContext.Request;
             //response = controller.SecuritiesMF();
             //Assert.AreEqual(HttpStatusCode.OK, response.StatusCode);
+        }
+
+        [Test]
+        public void TestActionFakeHandlerSelectById()
+        {
+            var uobj = new UnitTestForApiController();
+            var testobj= uobj.GetsecuritiesMfsList();
+            MemoryStream stream = new MemoryStream();
+            IFormatter formatter = new BinaryFormatter();
+            formatter.Serialize(stream, testobj);
+            var response = new HttpResponseMessage(HttpStatusCode.OK) 
+            {Content = new StreamContent(stream)};
+
+            using (var httpClient = new HttpClient(new FakeHandler
+            {
+                Response = response,
+                InnerHandler = new HttpClientHandler()
+            }))
+            {
+                System.Uri uri = new System.Uri("http://localhost:55893/api/");
+                httpClient.BaseAddress = uri;
+                var controller = new SecuritiesMfMvcController(httpClient);
+                var result = controller.Select(2155) as ViewResult;
+                Assert.IsNotNull(result);
+                Assert.AreEqual(result.ViewName,"Select");
+            }
+
+            
         }
         private string GenerateJsonArrayofSecurityMf()
         {

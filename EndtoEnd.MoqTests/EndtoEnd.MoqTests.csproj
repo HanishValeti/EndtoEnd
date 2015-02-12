@@ -107,6 +107,7 @@
     <Otherwise />
   </Choose>
   <ItemGroup>
+    <Compile Include="FakeHandler.cs" />
     <Compile Include="FakeHttpChannel.cs" />
     <Compile Include="FakeHttpContent.cs" />
     <Compile Include="FakeHttpMessageHandler.cs" />

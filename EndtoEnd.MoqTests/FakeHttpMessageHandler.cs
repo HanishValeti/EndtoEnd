@@ -63,7 +63,6 @@ namespace EndtoEnd.MoqTests
             }
 
             MemoryStream ms = new MemoryStream();
-
             await originalContent.CopyToAsync(ms);
 
             // Reset the stream position back to 0 as in the previous CopyToAsync() call,
