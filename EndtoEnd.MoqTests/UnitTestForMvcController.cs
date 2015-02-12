@@ -32,7 +32,7 @@ namespace EndtoEnd.MoqTests
             
             var responseMessage = new HttpResponseMessage
             {
-                Content = new FakeHttpContent(GenerateJsonArrayofSecurityMf())
+                Content = new FakeHttpContent(testobj)
             };
             var messageHandler = new FakeHttpMessageHandler(responseMessage);
             HttpServer server = new HttpServer(messageHandler);
@@ -94,23 +94,6 @@ namespace EndtoEnd.MoqTests
                 var result = controller.Select(2155);
                 Assert.IsNotNull(result);
             }
-        }
-
-        [Test]
-        public void TestActionMockSelectById()
-        {
-            var mockHttpRequest = new Mock<HttpRequestMessage>(new object[] { new HttpMethod("GET"), "www.someuri.com" });
-            var mockHttpConfig = new Mock<HttpConfiguration>();
-            var mockRouteData = new Mock<IHttpRouteData>();
-
-            var mockHttpContext =
-              new Mock<HttpControllerContext>(new object[] { mockHttpConfig.Object, mockRouteData.Object, mockHttpRequest.Object });
-
-            //var controller = new YourController();
-            //controller.ControllerContext = mockHttpContext.Object;
-            //controller.Request = controller.ControllerContext.Request;
-            //response = controller.SecuritiesMF();
-            //Assert.AreEqual(HttpStatusCode.OK, response.StatusCode);
         }
 
         [Test]

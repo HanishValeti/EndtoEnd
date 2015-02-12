@@ -4,6 +4,8 @@ using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Runtime.Serialization;
+using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -11,9 +13,9 @@ namespace EndtoEnd.MoqTests
 {
     public class FakeHttpContent : HttpContent
     {
-        public string Content { get; set; }
+        public object Content { get; set; }
 
-        public FakeHttpContent(string content)
+        public FakeHttpContent(object content)
         {
             Content = content;
         }
@@ -21,13 +23,15 @@ namespace EndtoEnd.MoqTests
         protected async override Task SerializeToStreamAsync(Stream stream,
             TransportContext context)
         {
-            byte[] byteArray = Encoding.ASCII.GetBytes(Content);
-            await stream.WriteAsync(byteArray, 0, Content.Length);
+            MemoryStream ms = new MemoryStream();
+            IFormatter formatter = new BinaryFormatter();
+            formatter.Serialize(ms, Content);
+            await ms.CopyToAsync(stream);
         }
 
         protected override bool TryComputeLength(out long length)
         {
-            length = Content.Length;
+            length = Content.ToString().Length;
             return true;
         }
     }
